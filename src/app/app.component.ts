@@ -9,6 +9,8 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { LoadingComponent } from './loading/loading.component';
 import { ErrorComponent } from './error/error.component';
 import { AppServices } from './app.services';
+import { Store } from '@ngrx/store';
+import { loadCartItems } from './store/cart.actions';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +30,7 @@ import { AppServices } from './app.services';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(readonly appServices: AppServices) {}
+  constructor(readonly appServices: AppServices, private store: Store) {}
   title = 'angular-v18';
   isVisable: boolean = false;
   items: string[] = [];
@@ -42,6 +44,8 @@ export class AppComponent {
     this.appServices.behavior.subscribe((res) => {
       this.carts = JSON.parse(localStorage.getItem('carts') as string);
     });
+
+    this.store.dispatch(loadCartItems())
   }
 
   getItem(childComponentRef: any) {

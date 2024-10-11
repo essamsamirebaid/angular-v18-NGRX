@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Strawberry",
+    "price": 30,
+    "quantity": 5,
+    "url": "assets/images/strawberry.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Banana",
+    "price": 25,
+    "quantity": 7,
+    "url": "assets/images/banana.jpg"
+  }
+]

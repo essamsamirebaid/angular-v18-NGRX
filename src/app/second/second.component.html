@@ -1,63 +1,24 @@
-<!-- <div class="box">
-  <p>first works!</p>
-</div> -->
 <div class="d-flex p-5">
+  @for( item of cartItems|async; track item.id){
   <div class="card shadow" style="width: 20rem; margin-right: 3rem">
     <div class="imageContainer">
-      <img
-      src="assets/images/banana.jpg"
-        class="card-img-top  banarImage"
-      />
+      <img src="{{ item.url }}" class="card-img-top banarImage" />
     </div>
     <div class="card-body mt-3">
       <div class="d-flex justify-content-between">
-        <h5 style="line-height: 2">Banana</h5>
+        <h5 style="line-height: 2">{{ item.name }}</h5>
         <div>
-          <div
-            type="button"
-            style="width: 35px; font-weight: 900"
-            class="btn btn-primary me-2"
-          >
-            +
-          </div>
           <button
             type="button"
-            style="width: 35px; font-weight: 900"
+            style="font-weight: 900"
             class="btn btn-primary"
+            (click)="updateCart(item)"
           >
-            <span>-</span>
+            <span>Add To Card</span>
           </button>
         </div>
       </div>
     </div>
   </div>
-  <div class="card shadow" style="width: 20rem">
-    <div class="imageContainer">
-      <img
-        src="assets/images/strawberry.jpg"
-        class="card-img-top  banarImage"
-      />
-    </div>
-    <div class="card-body mt-3">
-      <div class="d-flex justify-content-between">
-        <h5 style="line-height: 2">Strawberry</h5>
-        <div>
-          <div
-            type="button"
-            style="width: 35px; font-weight: 900"
-            class="btn btn-primary me-2"
-          >
-            +
-          </div>
-          <button
-            type="button"
-            style="width: 35px; font-weight: 900"
-            class="btn btn-primary"
-          >
-            <span>-</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  }
 </div>
