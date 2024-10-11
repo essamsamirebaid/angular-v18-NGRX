@@ -38,9 +38,7 @@ export class AppComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    if (!localStorage.getItem('carts')) {
-      localStorage.setItem('carts', JSON.stringify([]));
-    }
+
     this.appServices.behavior.subscribe((res) => {
       this.carts = JSON.parse(localStorage.getItem('carts') as string);
     });
@@ -48,9 +46,9 @@ export class AppComponent {
     this.store.dispatch(loadCartItems())
   }
 
-  getItem(childComponentRef: any) {
-    childComponentRef.addItemToCard.subscribe((item: string) => {
-      this.items.push(item);
-    });
-  }
+  // getItem(childComponentRef: any) {
+  //   childComponentRef.addItemToCard.subscribe((item: string) => {
+  //     this.items.push(item);
+  //   });
+  // }
 }

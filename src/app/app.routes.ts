@@ -3,13 +3,14 @@ import { HeaderComponent } from './header/header.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { HomeComponent } from './home/home.component';
+import { ThirdComponent } from './third/third.component';
 
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   redirectTo: 'home',
-  // },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
   {
     path: 'home',
     component: HomeComponent,
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'second',
     component: SecondComponent,
+  },
+  {
+    path: 'third',
+    component: ThirdComponent,
   },
 ];
