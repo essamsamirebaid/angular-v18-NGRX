@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { AppServices } from '../app.services';
 import { Store } from '@ngrx/store';
-import { addToCart } from '../store/cart.actions';
+import { addToCart, removeFromCart } from '../store/cart.actions';
 import { CartItem } from '../store/cart-item.model';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
@@ -34,7 +34,10 @@ export class SecondComponent {
     this.addItemToCard.emit(value);
     this.appServices.pushItemCart(value);
   }
-  updateCart(item: CartItem) {
-    this.store.dispatch(addToCart({ item }));
+  updateCart(item: CartItem, type: string) {
+    if (type === 'add') {
+      this.store.dispatch(addToCart({ item }));
+    } else {
+      this.store.dispatch(removeFromCart({itemId:item.id}));    }
   }
 }
