@@ -1,2 +1,15 @@
-<app-header></app-header>
-<router-outlet (activate)="getItem($event)"></router-outlet>
+<!-- <div
+  class="number"
+  type="button"
+  [ngClass]="{
+    'divisible': number % 5 === 0 && isClicked,
+    'indivisible': number % 5 !== 0 && isClicked
+  }"
+  (click)="isClicked = true"
+>
+    {{ number }}
+</div> -->
+
+<div class="number" type="button" highlight [number]="number" [divisibleBy]="5">
+  {{ number }}
+</div>
